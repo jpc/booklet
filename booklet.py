@@ -35,13 +35,18 @@ def oneBooklet (s, e):
 def bookletPageNumbers (n):
   n = roundTo (n + 3, 4)
   full = n // 16
+  remain = n
   for c in range(full):
     c *= 16
-    for p1, p2, flip in oneBooklet(c, c+15):
+    s = 16
+    remain -= s
+    if remain <= 4:
+      s += remain
+      remain = 0
+    for p1, p2, flip in oneBooklet(c, c+s-1):
       yield p1, p2, flip
-  c = full * 16
-  rest = n - c
-  for p1, p2, flip in oneBooklet(c, c+rest-1):
+  c = n - remain
+  for p1, p2, flip in oneBooklet(c, c+remain-1):
     yield p1, p2, flip
 
 def bookletPages (pdf):
