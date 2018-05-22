@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Booklet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.3.6/cropper.min.css" integrity="sha256-1tX5fsVcIDX7IzM1u6WaEqyG0T34/10zrlPJIu3kwbY=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- ko foreach: [model.even, model.odd] -->
+    <div class="page-container">
+      <p data-bind="text: ko.toJSON(crop)"></p>
+    </div>
+    <!-- /ko -->
+    <input type="text" data-bind="value: crop" onClick="this.setSelectionRange(0, this.value.length)"></input>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js" integrity="sha256-H9N9blVxqgLNhjZznl2m0R/VEIqFIT8CFHyLFGVRuns=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.3.6/cropper.js" integrity="sha256-F12Hxm/pB/AZ0ZtRp2DCysPIWYEJoJkZ1DhPSQQ3T8Q=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/lodash/4/lodash.min.js"></script>
+  <script src="pages.json"></script>
+  <script src="script.js"></script>
+</body>
+</html>

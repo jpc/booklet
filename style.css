@@ -1,0 +1,14 @@
+.page-container {
+  position: relative;
+  float: left;
+}
+
+/* Limit image width to avoid overflow the container */
+.page-container > canvas {
+  max-width: 100%; /* This rule is very important, please do not ignore this! */
+}
+
+/*.cropper-bg {
+  background: transparent !important;
+}
+*/

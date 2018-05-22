@@ -1,0 +1,18 @@
+#!/bin/sh
+readlink=$(which greadlink || which readlink 2> /dev/null)
+PROGRAM_PATH=$(dirname "$("$readlink" -f "$0")")
+
+INPUT_PDF=$("$readlink" -f $1)
+if ! [ -e "$INPUT_PDF" ]; then
+  echo "error: file not found: $1"
+  exit 1
+fi
+
+render() {
+  "$PROGRAM_PATH/booklet.py" "$INPUT_PDF" $(pbpaste)
+}
+
+trap render INT
+
+export INPUT_PDF
+make
