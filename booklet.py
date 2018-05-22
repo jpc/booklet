@@ -22,6 +22,8 @@ def fitPage (p, tw, th, xo, yo, flip, crop):
   xo -= float(cbx) * s
   yo -= float(cby) * s
   xo += (tw - nw) / 2 * om; yo += (th - nh) / 2 * om
+  p.trimBox.upperLeft = (cbx * s + xo, (cby + h) * s + yo)
+  p.trimBox.lowerRight = ((cbx + w) * s + xo, cby * s + yo)
   p.addTransformation([s,  0,
                        0,  s,
                        xo, yo])
