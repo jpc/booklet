@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from pyPdf import PdfFileReader, PdfFileWriter
+from PyPDF2 import PdfFileReader, PdfFileWriter
 import sys, os
 
 def mm(mm):
